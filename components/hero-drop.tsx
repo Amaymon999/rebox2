@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useReboxStore } from "@/store/useReboxStore";
@@ -18,13 +19,37 @@ export function HeroDrop() {
         className="rounded-2xl bg-rebox-orange text-white shadow-soft overflow-hidden relative"
       >
         <div className="p-4">
+          <Image
+            src="/brand/fox_party.png"
+            alt=""
+            width={140}
+            height={140}
+            className="pointer-events-none select-none absolute -right-6 -bottom-10 opacity-30 drop-shadow-sm"
+          />
           <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Image src="/brand/logo.png" alt="REBOX STORE" width={28} height={28} className="rounded-[10px] shadow-soft" />
+              <div className="text-[12px] font-black tracking-tight leading-none">REBOX</div>
+            </div>
             <Badge tone="navy">SOLO OGGI</Badge>
             <Badge tone="yellow">{city}</Badge>
           </div>
 
-          <h1 className="mt-3 text-[26px] leading-[1.05] font-black tracking-tight">
-            {drop.title}
+          <h1 className="mt-3 text-[34px] sm:text-[38px] leading-[1.02] font-black tracking-tight">
+            {(() => {
+              const parts = drop.title.split(":");
+              if (parts.length >= 2) {
+                const a = parts[0].trim();
+                const b = parts.slice(1).join(":").trim();
+                return (
+                  <span className="block">
+                    <span className="block">{a}</span>
+                    <span className="block text-white/95">{b}</span>
+                  </span>
+                );
+              }
+              return <span>{drop.title}</span>;
+            })()}
           </h1>
 
           <p className="mt-2 text-white/90 text-[13px] font-semibold">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,8 +20,9 @@ export function LoyaltyPanel() {
     <div className="px-4 space-y-3">
       <h1 className="text-[20px] font-black">Punti REBOX</h1>
 
-      <Card className="bg-rebox-navy text-rebox-cream">
+      <Card className="bg-rebox-navy text-rebox-cream relative overflow-hidden">
         <CardContent className="p-4">
+          <Image src="/brand/fox_heart.png" alt="" width={120} height={120} className="pointer-events-none select-none absolute -right-6 -top-6 opacity-25" />
           <div className="flex items-center justify-between">
             <Badge tone="yellow">{tier}</Badge>
             <div className="text-right">
@@ -49,6 +51,7 @@ export function LoyaltyPanel() {
 
       <Card>
         <CardContent className="p-4">
+          <Image src="/brand/fox_heart.png" alt="" width={120} height={120} className="pointer-events-none select-none absolute -right-6 -top-6 opacity-25" />
           <div className="text-[14px] font-black">Regole semplici</div>
           <div className="mt-1 text-[12px] font-semibold text-rebox-navy/70">
             1€ = 10 punti. Bundle e ReBox Club danno bonus. Premi immediati e trasparenti.

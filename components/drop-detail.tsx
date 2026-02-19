@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ export function DropDetail() {
 
       <Card className="bg-rebox-orange text-white border-0">
         <CardContent className="p-4">
+          <Image src="/brand/fox_walk.png" alt="" width={110} height={110} className="pointer-events-none select-none absolute -right-6 -bottom-6 opacity-20" />
           <div className="flex items-center justify-between">
             <Badge tone="navy">SOLO OGGI</Badge>
             <Badge tone="yellow">{drop.quantityLeft}/{drop.quantityTotal}</Badge>
